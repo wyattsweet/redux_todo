@@ -4,7 +4,6 @@ import ReactDOM from 'react-dom';
 import App from './App';
 import './index.css';
 
-// todo reducer
 const todo = (state = [], action) => {
   switch (action.type) {
     case 'ADD_TODO':
