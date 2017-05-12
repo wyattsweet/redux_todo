@@ -4,6 +4,8 @@ import ReactDOM from 'react-dom';
 import App from './App';
 import './index.css';
 
+const { combineReducers } = Redux;
+
 // Reducer composition abstracts away reducer logic into multiple reducers then lets reducers call each other
 const todo = (state, action) => {
   switch (action.type) {
@@ -48,18 +50,13 @@ const visibilityFilter = (state='SHOW_ALL', action) => {
   }
 };
 
-const todoApp = (state = {}, action) => {
-  return {
-    todos: todos(
-      state.todos,
-      action
-    ),
-    visibilityFilter: visibilityFilter(
-      state.visibilityFilter,
-      action
-    )
-  }
-}
+const todoApp = combineReducers({
+  todos, 
+  visibilityFilter
+})
+
+const { createStore } = Redux;
+const store = createStore(todoApp);
 
 ReactDOM.render(
   <App />,
