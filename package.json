@@ -15,8 +15,6 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test --env=jsdom",
-    "jest": "jest",
-    "test:watch": "npm jest -- --watch",
     "eject": "react-scripts eject"
   }
 }
