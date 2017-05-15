@@ -54,7 +54,7 @@ const todoApp = combineReducers({
   visibilityFilter
 })
 
-const store = createStore(todoApp);
+const store = createStore(todoApp, window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__());
 
 class TodoApp extends Component {
   render() {
@@ -75,7 +75,17 @@ class TodoApp extends Component {
         </button>
         <ul>
           {this.props.todos.map(todo =>
-            <li key={todo.id}>
+            <li key={todo.id}
+              onClick={() => {
+                store.dispatch({
+                  type: 'TOGGLE_TODO',
+                  id: todo.id
+                })
+              }}
+              style={{
+                textDecoration: todo.completed ? 'line-through':'none'
+              }}
+            >
               {todo.text}  
             </li>
           )}
