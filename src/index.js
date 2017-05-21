@@ -85,16 +85,21 @@ const mapStateToLinkProps = (state, ownProps) => {
   }
 }
 
+// action creator
+const setVisibilityFilter = (filter) => {
+  return {
+    type: 'SET_VISIBILITY_FILTER',
+    filter
+  }
+}
+
 const mapDispatchToLinkProps = (
   dispatch,
   ownProps
 ) => {
   return {
     onClick: () => {
-      dispatch({
-        type: 'SET_VISIBILITY_FILTER',
-        filter: ownProps.filter
-      })
+      dispatch(setVisibilityFilter(ownProps.filter));
     }
   }
 }
@@ -126,6 +131,7 @@ const Todo = ({
 
 
 let nextTodoId = 0;
+// action creator
 const addTodo = (text) => {
   return {
     type: 'ADD_TODO',
@@ -197,13 +203,19 @@ const mapStateToTodoListProps = (state) => {
   };
 };
 
+// action creator
+const toggleTodo = (id) => {
+  return {
+    type: 'TOGGLE_TODO',
+    id
+  }
+}
+
 const mapDispatchToTodoListProps = (dispatch) => {
   return {
-    onTodoClick: (id) =>
-      dispatch({
-        type: 'TOGGLE_TODO',
-        id
-      })
+    onTodoClick: (id) => {
+      dispatch(toggleTodo(id))
+    }
   }
 };
 
