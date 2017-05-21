@@ -55,7 +55,9 @@ const todoApp = combineReducers({
 })
 
 
-// Components
+//
+// Link Component
+//
 
 const Link = ({
   active,
@@ -110,6 +112,9 @@ const FilterLink = connect(
 )(Link)
 
 
+//
+// Todo component
+//
 
 const Todo = ({
   onClick,
@@ -129,6 +134,9 @@ const Todo = ({
 )
 
 
+//
+// addTodo Component
+//
 
 let nextTodoId = 0;
 // action creator
@@ -161,6 +169,9 @@ let AddTodo = ({ dispatch }) => {
 AddTodo = connect()(AddTodo);
 
 
+//
+// TodoList Component
+//
 
 const TodoList = ({
   todos,
@@ -225,6 +236,9 @@ const VisibleTodoList = connect(
 )(TodoList);
 
 
+//
+// Footer Component
+//
 
 const Footer = () => (
   <p>
